@@ -1,7 +1,7 @@
 
 #include <stdio.h>
 
-// Define a structure for Date
+// Define a structure for Date Done by somnath
 struct Date {
     int day;
     int month;
