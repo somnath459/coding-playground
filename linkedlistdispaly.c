@@ -1,11 +1,3 @@
-/******************************************************************************
-
-                            Online C Compiler.
-                Code, Compile, Run and Debug C program online.
-Write your code in this editor and press "Run" button to compile and execute it.
-
-*******************************************************************************/
-
 #include <stdio.h>
 #include<stdlib.h>
 struct node{
@@ -53,6 +45,8 @@ void display(){
     }
     
 }
+// i. void insertNode(int value): This function should insert a new node
+// with the given value at the end of the linked list.
 void insertend(){
     int n;
     printf("enter the insert element: ");
@@ -82,11 +76,51 @@ void display1(){
     }
     
 }
+// ii. void deleteNode(int value): This function should delete the node
+//with the given value from the linked list.
+void deletenode(int value){
+    struct node*temp=head,*pre;
+    if(head==NULL){
+        printf("The head is not find.");
+        return;
+    }
+    if(head->data==value){
+        temp=head;
+        head=head->next;
+        free(temp);
+    }
+    else{
+        while(temp!=NULL&&temp->data!=value){
+            pre = temp;
+            temp=temp->next;
+            
+        }
+        pre->next=temp->next;
+        free(temp);
+    }
+}
+void display2() {
+    struct node *temp = head;
+
+    if (head == NULL) {
+        printf("The linked list is empty.\n");
+        return;
+    }
+
+    printf("------- Edited Linked List ---------\n");
+    while (temp != NULL) {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+}
+
 int main(){
     create();
     display();
     insertend();
     display1();
+    deletenode(3);
+    display2();
     return 0;
 }
-
